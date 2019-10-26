@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package rockpaperscissors;
+
+// Service to play a game of Rock-Paper-Scissors.
+service RockPaperScissors {
+    rpc Game(GameRequest) returns (GameResponse) {}
+}
+
+message GameRequest {
+    Symbol play = 1;
+}
+
+message GameResponse {
+    enum Result {
+        LOSS = 0;
+        WIN = 1;
+        TIE = 2;
+    }
+
+    Symbol enemy_play = 1;
+    Result result = 2;
+}
+
+// Possible plays.
+enum Symbol {
+    ROCK  = 0;
+    PAPER = 1;
+    SCISSORS = 2;
+}
