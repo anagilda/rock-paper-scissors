@@ -5,6 +5,7 @@ python:
 
 install:
   - pip install -r requirements/production.txt
+  - pip install -r requirements/tests.txt
 
 script:
   - python -m unittest discover -s tests/
